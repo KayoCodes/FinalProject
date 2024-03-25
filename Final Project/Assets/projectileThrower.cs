@@ -32,9 +32,11 @@ public class projectileThrower : MonoBehaviour
     void SpawnProjectiles(){
         StartCoroutine(SpawnProjectilesRoutine());
         IEnumerator SpawnProjectilesRoutine(){
+
             while (true)
             {
-              yield return new WaitForSeconds(2);
+                Launch(canonPosVec);
+              yield return new WaitForSeconds(1.5f);
               
               Launch(canonPosVec);
             }
