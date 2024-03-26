@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerInput : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] player Player;
+    [SerializeField] playerL2 Player;
     [SerializeField] GameObject canon;
     projectileThrower ProjectileThrower;
     void Start()

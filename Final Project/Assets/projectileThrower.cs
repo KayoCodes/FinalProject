@@ -38,7 +38,7 @@ public class projectileThrower : MonoBehaviour
                 Launch(canonPosVec);
               yield return new WaitForSeconds(1.5f);
               
-              Launch(canonPosVec);
+              //Launch(canonPosVec);
             }
         }
     }

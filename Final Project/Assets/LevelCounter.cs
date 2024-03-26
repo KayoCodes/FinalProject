@@ -8,6 +8,7 @@ public class LevelCounter : MonoBehaviour
 {
    
    [SerializeField] private TextMeshProUGUI levelCounterText;
+   [SerializeField] int levelnumber;
     public static  LevelCounter level;
     int levelTotal= 0;
 
@@ -19,7 +20,7 @@ public class LevelCounter : MonoBehaviour
     }
     void Start()
     {
-        levelCounterText.text = "Level " + levelTotal.ToString();
+        levelCounterText.text = "Level " + levelnumber.ToString();
     }
 
     // Update is called once per frame

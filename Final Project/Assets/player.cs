@@ -7,8 +7,10 @@ public class player : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] float speed = 8f;
-    [SerializeField] Vector3 homePosition = new Vector3(0,-5,0);
+    [SerializeField] Vector3 homePosition = new Vector3(-17,8,0);
     [SerializeField] GameObject applePrefab;
+    [SerializeField] string scenename;
+    
     bool flagHit;
     bool appleRecieved;
     
@@ -19,6 +21,7 @@ public class player : MonoBehaviour
     {
         flagHit = false;
         appleRecieved = false;
+        this.transform.position = new Vector3(-17,8,0);
         rb = GetComponent<Rigidbody2D>();
        //SpriteRenderer sr = box.GetComponent<SpriteRenderer>();
        player Player = GetComponent<player>();
@@ -43,6 +46,10 @@ public class player : MonoBehaviour
     }
     if(other.gameObject.tag == "projectile"){
         GameObject newProjectile = Instantiate(applePrefab, new Vector3(-1.45f,0,0),Quaternion.identity); 
+        //SceneManager.LoadScene(scenename);
+        flagHit = false;
+        appleRecieved = false;
+
     }
     if(other.gameObject.tag == "Apple"){
         appleRecieved = true;
@@ -50,13 +57,15 @@ public class player : MonoBehaviour
         Destroy(other.gameObject);
     }
     if (flagHit && appleRecieved){
+        SceneManager.LoadScene("Level2");
+        
         LevelCounter.level.RegisterLevel();
         flagHit = false;
         appleRecieved = false;
             GameObject newProjectile = Instantiate(applePrefab, new Vector3(-1.45f,0,0),Quaternion.identity); 
 
        
-        this.transform.position = new Vector3(-17,8,0);
+        this.transform.position = homePosition;
     }
    }
 

@@ -12,7 +12,7 @@ public class deathCounter : MonoBehaviour
     int deathTotal = 0;
 
     void Awake(){
-        if(deaths != null){
+         if(deaths != null){
             Destroy(this.gameObject);
         }
         deaths = this;
