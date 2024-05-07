@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 
 public class deathCounter : MonoBehaviour
@@ -9,15 +10,22 @@ public class deathCounter : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private TextMeshProUGUI deathCounterText;
     public static  deathCounter deaths;
-    int deathTotal = 0;
+    public int deathTotal = 0;
+    
 
     void Awake(){
          if(deaths != null){
+           
+            
             Destroy(this.gameObject);
+           
         }
-        deaths = this;
+        deathTotal = PlayerPrefs.GetInt("deaths", 0);
+        deaths =this;
     }
      void Start(){
+        Debug.Log("Start");
+        
         deathCounterText.text = "Deaths " + deathTotal.ToString();
     }
 

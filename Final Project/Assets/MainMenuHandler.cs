@@ -19,6 +19,7 @@ public class MainMenuHandler : MonoBehaviour
         
     }
     public void Play(){
+        PlayerPrefs.SetInt("deaths", 0);
         SceneManager.LoadScene("FirstLevel");
        // screen.FadeToColor("Movement");
 
